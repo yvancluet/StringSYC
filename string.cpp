@@ -20,13 +20,61 @@ string::string (const string& str){ //copy constructor
 	}
 }
 
+string::string (const char* s){ //Constructor from c-string
+  char charac = s[0];
+  int longueur = 0;
+  while(charac != '\0'){
+    longueur ++;
+    charac = s[longueur];
+  }
+  if (longueur > Sizemax){
+    longueur = Sizemax;
+    std::cout << "String's length exceeds maximum capacity"  << std::endl;
+  }
+  size_ = longueur;
+  capacity_ = longueur;
+  tab = new char[longueur + 1];
+  for(int i = 0 ; i < longueur ; i++){
+    tab[i] = s[i];
+  }
+  tab[longueur] = '\0';
+}
+
 //Public Methods
 
 void string::clear (void){
 	tab[0] = '\0';
 	size_ = 0;
 }
-
+/**
+void string::resize (int n, char c){
+  if(n > Sizemax){
+    n = Sizemax;
+    std::cout << "Requested length exceeds maximum capacity"  << std::endl;
+  }
+  if(n > size_){
+    char* tab2 = new char[n+1];
+    for(int i = 0 ; i < size_ ; i++){
+      tab2[i] = tab[i];
+    }
+    delete[] tab;
+    for(int i = size_ ; i < n ; i++){
+      tab2[i] = c;
+    }
+    tab2[n] = '\0';
+    size_ = n;
+    capacity_ = n;
+    tab = tab2;    
+  }
+  else{               
+  /** if n is smaller than the current string length
+  characters beyond the (n+1)th are untouched
+  
+    tab[n] = '\0'; 
+    size_ = n;
+  }
+}
+**/
 //Protected Methods
 
 //Operators
@@ -73,4 +121,23 @@ string operator+ (const string& A, char B){
   return string(sumchaine);
 
 }
+
+string& string::operator= (const char* s){
+	
+  if(tab != nullptr){
+    delete [] tab;
+  }
+  size_ = string(s).length();
+  if(size_ > 0){
+    tab = new char [size_ + 1];
+    for (int i = 0 ; i<=size_+1 ; i++){
+      tab[i] = s[i];
+    }
+  }
+  else{
+    tab = nullptr;
+  }
+  return *this;
+}
+
 

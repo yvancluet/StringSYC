@@ -31,6 +31,7 @@ class string{
 //Operators
 
 	friend string operator+ (const string& A, char B);
+  friend string operator+ (const string& A, const string& B);
 	string& operator= (const string& A);
 	string& operator= (char c);
   string& operator= (const char* s);
@@ -45,8 +46,8 @@ class string{
 
   protected :  //Protected Methods
 
+
 //Attributes
- 
 
   int size_; // length of the String
   char* tab; // tab of char (represents the string)

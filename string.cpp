@@ -160,6 +160,33 @@ string& string::operator= (const char* s){
 }
 
 
+string operator+ (const string& A, const string& B){
+  
+  int a = A.size();
+  int b = B.size();
+  int sumsize = a + b;
+   
+  if (sumsize > A.Sizemax){
+    sumsize = A.Sizemax;
+    std::cout << "string's length exceeds maximum capacity"  << std::endl;
+  }
+  
+  char* sumchaine = new char[sumsize+1];
+  char* chaineA = A.c_str(); 
+  for (int i = 0 ; i<a ; i++){
+    sumchaine[i] = chaineA[i];
+  }
+  
+  char* chaineB = B.c_str();
+  for (int i = a ; i<sumsize ; i++){
+    sumchaine[i] = chaineB[i-a];
+  }
+  
+  sumchaine[sumsize] = '\0';
+  return string(sumchaine); 
+}
+
+
 string operator+ (const string& A, char B){
 	
   char* chaineA = A.c_str();

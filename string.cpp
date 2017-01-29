@@ -140,6 +140,26 @@ string& string::operator= (char c){
   return *this;
 }
 
+
+string& string::operator= (const char* s){
+  
+  if(tab != nullptr){
+    delete [] tab;
+  }
+  size_ = string(s).length();
+  if(size_ > 0){
+    tab = new char [size_ + 1];
+    for (int i = 0 ; i<=size_+1 ; i++){
+      tab[i] = s[i];
+    }
+  }
+  else{
+    tab = nullptr;
+  }
+  return *this;
+}
+
+
 string operator+ (const string& A, char B){
 	
   char* chaineA = A.c_str();

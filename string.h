@@ -33,6 +33,7 @@ class string{
 	friend string operator+ (const string& A, char B);
 	string& operator= (const string& A);
 	string& operator= (char c);
+  string& operator= (const char* s);
 
   
 //Public Methods

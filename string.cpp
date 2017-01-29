@@ -106,7 +106,7 @@ void string::resize (int n){
 
 //Operators
 
-string operator+ (string&& A, const char* B){
+string operator+ (const string& A, char* B){
   return A + string(B);
 }
 

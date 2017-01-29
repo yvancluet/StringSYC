@@ -17,6 +17,7 @@ class string{
   inline char* c_str (void) const;
   inline int max_size(void) const;
   inline int length(void) const;
+  inline int capacity(void) const;
 
 
 //Destructor
@@ -30,7 +31,8 @@ class string{
 
 
 //Operators
-
+  
+  friend string operator+ (const string& A, char* B);
 	friend string operator+ (const string& A, char B);
   friend string operator+ (const string& A, const string& B);
 	string& operator= (const string& A);

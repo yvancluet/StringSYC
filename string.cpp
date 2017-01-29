@@ -52,6 +52,8 @@ void string::resize (int n, char c){
     n = Sizemax;
     std::cout << "Requested length exceeds maximum capacity"  << std::endl;
   }
+/*If n is greater than size and capacity, 
+ * tab is replaced by an array of size n 
   if(n > size_){
     char* tab2 = new char[n+1];
     for(int i = 0 ; i < size_ ; i++){
@@ -67,9 +69,9 @@ void string::resize (int n, char c){
     tab = tab2;    
   }
   else{               
-  /** if n is smaller than the current string length
-  characters beyond the (n+1)th are untouched
-  
+ /*If n is smaller than the current string length, 
+the current value is shortened to its first n character, 
+removing the characters beyond the nth
     tab[n] = '\0'; 
     size_ = n;
   }
@@ -122,7 +124,7 @@ string operator+ (const string& A, char B){
 
 }
 
-string& string::operator= (const char* s){
+/**string& string::operator= (const char* s){
 	
   if(tab != nullptr){
     delete [] tab;
@@ -138,6 +140,6 @@ string& string::operator= (const char* s){
     tab = nullptr;
   }
   return *this;
-}
+}**/
 
 

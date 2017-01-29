@@ -19,6 +19,10 @@ class string{
   inline int length(void) const;
 
 
+//Destructor
+
+  ~string();
+
 
 //Setters
 

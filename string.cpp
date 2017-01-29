@@ -40,6 +40,14 @@ string::string (const char* s){ //Constructor from c-string
   tab[longueur] = '\0';
 }
 
+
+//Destructor
+
+string::~string(){
+  delete [] tab;
+} 
+
+
 //Public Methods
 
 void string::clear (void){

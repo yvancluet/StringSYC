@@ -26,7 +26,8 @@ class string{
 
 //Setters
 
-	
+  inline void reserve (int new_cap);
+
 
 //Operators
 
@@ -74,6 +75,10 @@ inline char* string::c_str () const {
 
 inline int string::max_size() const{
   return Sizemax;
+}
+
+inline int string::capacity () const {
+  return capacity_;
 }
 
 

@@ -106,8 +106,23 @@ void string::resize (int n){
 
 //Operators
 
-string operator+ (string&& lhs, const char* rhs){
-  return lhs + string(rhs);
+string operator+ (string&& A, const char* B){
+  return A + string(B);
+}
+
+string& string::operator= (const string& A){
+  
+  capacity_ = A.capacity();
+  size_ = A.size();
+  delete [] tab;
+  tab = new char[capacity_+1];
+  
+  char* chaineA = A.c_str();
+  for (int i= 0 ; i<size_+1 ; i++){
+    tab[i] = chaineA[i];
+  }
+  
+  return *this;
 }
  
 string& string::operator= (char c){

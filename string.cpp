@@ -55,6 +55,19 @@ void string::clear (void){
 	size_ = 0;
 }
 
+
+bool string::empty(void) const{
+  bool b;
+  if (size()==0){
+    b=true;
+  }
+  else { 
+    b=false; 
+  }
+  return b;
+}
+
+
 void string::resize (int n, char c){
   if(n > Sizemax){
     n = Sizemax;

@@ -40,7 +40,7 @@ class string{
   void clear (void);
   void resize(int n,char c);
   void resize(int n);
-
+  bool empty(void) const;
 
   protected :  //Protected Methods
 

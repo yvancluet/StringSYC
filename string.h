@@ -85,4 +85,13 @@ inline int string::capacity () const {
 
 //Setters' definitions
 
+inline void string::reserve(int new_cap){
+  if(new_cap>Sizemax){ 
+    capacity_= Sizemax;
+  }
+  
+  else if(new_cap>capacity_){ 
+    capacity_=new_cap;
+  }
+}
 

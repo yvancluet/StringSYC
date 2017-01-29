@@ -98,6 +98,10 @@ removing the characters beyond the nth*/
   }
 }
 
+void string::resize (int n){
+  resize(n,'\0');
+}
+
 //Protected Methods
 
 //Operators
